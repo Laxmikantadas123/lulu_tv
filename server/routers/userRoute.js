@@ -1,21 +1,21 @@
 import express from "express";
 const router=express.Router()
 import {updateUser,getUser,deleteUser,subscribe,unsubscribe,like,dislike} from "../controllers/userController.js"
-
+import { authontication } from "../middlewares/auth.js";
 //upadte user
-router.put("/update/:id",updateUser)
+router.put("/update/:id",authontication,updateUser)
 //get user
 router.get("/getdata/:id",getUser)
 //delete user
-router.delete("/delete/:id",deleteUser)
+router.delete("/delete/:id",authontication,deleteUser)
 //subscribe user
-router.put("/subscribe/:id",subscribe)
+router.put("/subscribe/:id",authontication,subscribe)
 //unsubscribe the user
-router.put("/unsubscribe/:id",unsubscribe)
+router.put("/unsubscribe/:id",authontication,unsubscribe)
 //like user
-router.put("/like/:videoId",like)
+router.put("/like/:videoId",authontication,like)
 //dislike user
-router.put("/dislike/:videoId",dislike)
+router.put("/dislike/:videoId",authontication,dislike)
 
 
 
