@@ -6,7 +6,7 @@ import cors from "cors"
 import cookieParser from "cookie-parser"
 import auth from "./routers/authRoute.js"
 import userRoute from "./routers/userRoute.js";
-// import videoRoute from "./routers/videoRoute.js"
+import videoRoute from "./routers/videoRoute.js"
 // import commentRoute from "./routers/commentRoute.js"
 // import authRoute from "./routers/authRoute.js"
 const app=express()
@@ -21,7 +21,7 @@ app.use(express.json())
 // ---------------------------routes------------------
 app.use("/auth",auth)
 app.use("/user",userRoute)
-// app.use("/video",videoRoute)
+app.use("/video",videoRoute)
 // app.use("/comment",commentRoute)
 
 
