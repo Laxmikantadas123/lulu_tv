@@ -1,9 +1,9 @@
-const ApiResponse=(statusCode,data,message,token)=>{
+const ApiResponse=(statusCode,data,message)=>{
        return{
         statusCode:statusCode,
         data:data,
-        message:message,
-        token:token
+        message:message
+        
        }
 }
 export default ApiResponse
