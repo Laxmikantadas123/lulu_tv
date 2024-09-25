@@ -38,55 +38,43 @@ export const updateVideo = asyncHandel(async (req, res) => {
 });
 
 export const getVideo = asyncHandel(async (req, res) => {
-  try {
-    const video = await Video.findById(req.params.id);
-    res.status(200).json(video);
-  } catch (err) {
-    throw ApiError(err.code, err.message);
-  }
+    try {
+        const video = await Video.findById(req.params.id);
+        res.status(200).json(video);
+      } catch (err) {
+       throw ApiError(error.code,error.message)
+      }
 });
 
 export const deleteVideo = asyncHandel(async (req, res) => {
-  try {
-    const video = await Video.findById(req.params.id);
-    if (!video) {
-      throw ApiError(404, "Video not found");
-    }
-    if (req.user.id === video.userId) {
-      await Video.findByIdAndDelete(req.params.id);
-      res.status(200).json("The video has been deleted.");
-    } else {
-      throw ApiError(403, "You can update only your video!");
-    }
-  } catch (error) {
-    throw ApiError(error.code, error.message);
-  }
+    try {
+        const video = await Video.findById(req.params.id);
+        if (!video) {
+            throw ApiError(404, "Video not found");
+          }
+        if (req.user.id === video.userId) {
+          await Video.findByIdAndDelete(req.params.id);
+          res.status(200).json("The video has been deleted.");
+        } else {
+            throw ApiError(403, "You can update only your video!");
+        }
+      } catch (error) {
+        throw ApiError(error.code, error.message);
+      }
 });
 
-export const addView = asyncHandel(async (req, res) => {
-  try {
-  } catch (error) {
-    throw ApiError(error.code, error.message);
-  }
-});
+export const addView=asyncHandel(async (req,res)=>{
 
-export const trend = asyncHandel(async (req, res) => {
-  try {
-  } catch (error) {
-    throw ApiError(error.code, error.message);
-  }
-});
+})
 
-export const random = asyncHandel(async (req, res) => {
-  try {
-  } catch (error) {
-    throw ApiError(error.code, error.message);
-  }
-});
+export const trend=asyncHandel(async (req,res)=>{
+    
+})
 
-export const sub = asyncHandel(async (req, res) => {
-  try {
-  } catch (error) {
-    throw ApiError(error.code, error.message);
-  }
-});
+export const random=asyncHandel(async (req,res)=>{
+    
+})
+
+export const sub=asyncHandel(async (req,res)=>{
+    
+})
